@@ -9,7 +9,7 @@ x_train = []
 y_label = []
 label_ids = {}
 
-face_data = cv2.CascadeClassifier("D:\Programs\Face Recognizer\haarcascade_frontalface_default.xml")
+face_data = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 Base_dir = os.getcwd()
 image_dir = os.path.join(Base_dir, "Traning Data")
@@ -43,7 +43,7 @@ for root, dirs, files in os.walk(image_dir):
 # print(x_train, y_label)
 with open("labels.pkl", 'wb') as file:
     pickle.dump(label_ids, file)
-print("the labels have beem dumped the training of the model has started")
+print("The labels have been dumped, training started successfully.")
 print("Please wait...")
 recognizer.train(x_train, np.array(y_label))
 recognizer.save("faces.yml")
